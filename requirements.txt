@@ -1,0 +1,53 @@
+# AI Desktop Assistant - Requirements
+
+# Core Flask Framework
+Flask==3.0.0
+flask-cors==4.0.0
+
+# Groq API
+groq>=0.33.0  # Version 0.4.1 has compatibility issues, using 0.33.0
+
+# Voice Processing
+SpeechRecognition>=3.14.3  # Updated for Python 3.13 compatibility
+gTTS==2.5.1  # Fallback TTS
+pygame>=2.6.1  # Updated for Python 3.13 compatibility (distutils removed)
+pyttsx3==2.90  # Offline voice (Windows SAPI) - Last resort fallback
+google-cloud-texttospeech==2.14.1  # Google Cloud TTS - Ultra natural human voice!
+
+# Advanced TTS (Best Quality for Python 3.13)
+# Note: Coqui TTS doesn't support Python 3.13 yet (requires 3.9-3.11)
+# Using Google Cloud TTS as primary - it's the BEST quality with WaveNet voices!
+
+# Desktop Automation
+pyautogui==0.9.54
+keyboard==0.13.5
+selenium==4.15.2
+psutil==5.9.6  # For process management (WhatsApp automation)
+pygetwindow==0.0.9  # For window focusing (WhatsApp automation)
+
+# Task Scheduling
+APScheduler==3.10.4
+
+# Additional utilities
+python-dotenv==1.0.0
+python-dateutil==2.8.2
+
+# Code Development & File Management
+GitPython==3.1.40  # Git automation
+beautifulsoup4==4.12.2  # Web scraping
+lxml==5.1.0  # HTML/XML parsing
+openpyxl==3.1.2  # Excel file handling
+Pillow==10.2.0  # Image processing
+PyPDF2==3.0.1  # PDF manipulation
+
+# System & Productivity
+pyperclip==1.8.2  # Clipboard management
+schedule==1.2.0  # Task scheduling (additional)
+
+# Web Scraping & Communication
+requests==2.31.0  # HTTP requests for web scraping
+
+# Coqui TTS - Not compatible with Python 3.13
+# Uncomment if using Python 3.9-3.11
+# TTS==0.20.1
+

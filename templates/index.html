@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>◆ JARVIS - Cybernetic AI Interface v3.7</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="grid-bg"></div>
+
+    <div class="container-fluid">
+        <div class="interface-wrapper">
+            <!-- Top Header -->
+            <div class="panel top-header">
+                <div>
+                    <h1 class="glitch" style="font-size: 20px; margin: 0;">◆ JARVIS CYBERNETIC AI INTERFACE v3.7</h1>
+                </div>
+                <div class="system-status">
+                    <div class="status-item">
+                        <div class="status-dot"></div>
+                        <span>SYSTEM ONLINE</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-dot"></div>
+                        <span id="neuralStatus">NEURAL LINK ACTIVE</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-dot"></div>
+                        <span>QUANTUM SECURE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left Sidebar -->
+            <div class="left-sidebar">
+                <div class="panel">
+                    <div class="panel-title">◆ SYSTEM METRICS</div>
+                    <div class="meter-group">
+                        <div class="meter">
+                            <div class="meter-label">CPU USAGE</div>
+                            <div class="meter-bar">
+                                <div class="meter-fill" id="cpuMeter" style="width: 67%;"></div>
+                            </div>
+                        </div>
+                        <div class="meter">
+                            <div class="meter-label">NEURAL LOAD</div>
+                            <div class="meter-bar">
+                                <div class="meter-fill" id="neuralMeter" style="width: 82%;"></div>
+                            </div>
+                        </div>
+                        <div class="meter">
+                            <div class="meter-label">MEMORY</div>
+                            <div class="meter-bar">
+                                <div class="meter-fill" id="memoryMeter" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                        <div class="meter">
+                            <div class="meter-label">BANDWIDTH</div>
+                            <div class="meter-bar">
+                                <div class="meter-fill" id="bandwidthMeter" style="width: 91%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">◆ STATUS</div>
+                    <div class="status-display">
+                        <div class="status-line">
+                            <span>CONNECTION:</span>
+                            <span class="status-value" id="connectionStatus">STABLE</span>
+                        </div>
+                        <div class="status-line">
+                            <span>LATENCY:</span>
+                            <span class="status-value" id="latencyStatus">12ms</span>
+                        </div>
+                        <div class="status-line">
+                            <span>UPTIME:</span>
+                            <span class="status-value" id="uptimeStatus">99.8%</span>
+                        </div>
+                        <div class="status-line">
+                            <span>ENCRYPTION:</span>
+                            <span class="status-value">AES-512</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">◆ ACTIVITY LOGS</div>
+                    <div class="terminal" id="activityLogs">
+                        <div class="terminal-line"><span class="terminal-prompt">&gt;</span> System initialized...</div>
+                        <div class="terminal-line"><span class="terminal-prompt">&gt;</span> All systems nominal</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Display -->
+            <div class="center-display">
+                <div class="panel main-display hologram">
+                    <div class="corner-decoration corner-tl"></div>
+                    <div class="corner-decoration corner-tr"></div>
+                    <div class="corner-decoration corner-bl"></div>
+                    <div class="corner-decoration corner-br"></div>
+
+                    <div class="avatar-geometric" id="avatarGeometric">
+                        <div class="avatar-shape octagon"></div>
+                        <div class="avatar-shape octagon-inner"></div>
+                        <div class="avatar-lines">
+                            <div class="line line-1"></div>
+                            <div class="line line-2"></div>
+                            <div class="line line-3"></div>
+                            <div class="line line-4"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">◆ AUDIO INTERFACE</div>
+                    <div class="waveform" id="audioWaveform">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">◆ NEURAL CHAT INTERFACE</div>
+                    <div class="terminal chat-terminal" id="chatMessages">
+                        <div class="terminal-line assistant-msg">
+                            <span class="terminal-prompt">&gt;</span> <span class="assistant-text">JARVIS ONLINE. All systems operational. Awaiting your command, Sir.</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <input type="text" id="chatInput" placeholder="ENTER COMMAND..." class="terminal-input" style="flex: 1;" />
+                        <button id="sendBtn" class="ctrl-btn" style="min-width: 100px;">EXECUTE</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="right-sidebar">
+                <div class="panel">
+                    <div class="panel-title">◆ NEURAL MATRIX</div>
+                    <div class="led-panel" id="neuralMatrix">
+                        <div class="led"></div>
+                        <div class="led"></div>
+                        <div class="led"></div>
+                        <div class="led"></div>
+                        <div class="led"></div>
+                        <div class="led"></div>
+                        <div class="led"></div>
+                        <div class="led"></div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">◆ TASKS</div>
+                    <div class="terminal tasks-terminal" id="tasksList">
+                        <div class="terminal-line"><span class="terminal-prompt">&gt;</span> No active tasks</div>
+                    </div>
+                    <button id="addTaskBtn" class="ctrl-btn" style="width: 100%; margin-top: 10px; font-size: 10px;">+ ADD TASK</button>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">◆ REMINDERS</div>
+                    <div class="terminal reminders-terminal" id="remindersList">
+                        <div class="terminal-line"><span class="terminal-prompt">&gt;</span> No reminders set</div>
+                    </div>
+                    <button id="addReminderBtn" class="ctrl-btn" style="width: 100%; margin-top: 10px; font-size: 10px;">+ ADD REMINDER</button>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">◆ POMODORO</div>
+                    <div class="data-panel" id="pomodoroPanel">
+                        <div style="margin-bottom: 8px;">STATUS: <span id="pomodoroStatus">INACTIVE</span></div>
+                        <div style="margin-bottom: 8px;">TASK: <span id="pomodoroTask">NONE</span></div>
+                        <div style="margin-bottom: 8px;">TIME: <span id="pomodoroTime">00:00</span></div>
+                        <button id="startPomodoroBtn" class="ctrl-btn" style="width: 100%; margin-top: 10px; font-size: 10px;">▶ START</button>
+                        <button id="stopPomodoroBtn" class="ctrl-btn hidden" style="width: 100%; margin-top: 5px; font-size: 10px;">■ STOP</button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">◆ HEALTH</div>
+                    <div class="data-panel" id="healthPanel">
+                        <div style="margin-bottom: 8px;">WATER: <span id="waterIntake">0ml</span></div>
+                        <div style="margin-bottom: 8px;">EXERCISE: <span id="exerciseTime">0min</span></div>
+                        <button id="logWaterBtn" class="ctrl-btn" style="width: 100%; margin-top: 10px; font-size: 10px;">💧 LOG WATER</button>
+                        <button id="logExerciseBtn" class="ctrl-btn" style="width: 100%; margin-top: 5px; font-size: 10px;">🏃 LOG EXERCISE</button>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-title">◆ VOICE ANALYTICS</div>
+                    <div class="data-panel">
+                        <div style="margin-bottom: 8px;">LANGUAGE: <span id="currentLang">ENGLISH</span></div>
+                        <div style="margin-bottom: 8px;">CLARITY: <span id="voiceClarity">98.3%</span></div>
+                        <div style="margin-bottom: 8px;">STATUS: <span id="voiceStatus">STANDBY</span></div>
+                        <div>MODE: <span id="voiceMode">INACTIVE</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Control -->
+            <div class="panel bottom-control">
+                <div class="control-panel" style="width: 100%;">
+                    <button class="ctrl-btn" id="voiceToggle">
+                        <span id="voiceBtnText">▶ ACTIVATE VOICE</span>
+                    </button>
+                    <button class="ctrl-btn lang-btn" data-lang="en">◆ ENGLISH</button>
+                    <button class="ctrl-btn lang-btn" data-lang="ur">◆ URDU</button>
+                    <button class="ctrl-btn" id="clearChatBtn">■ CLEAR CHAT</button>
+                    <button class="ctrl-btn" id="refreshBtn">⚡ REFRESH</button>
+                    <button class="ctrl-btn" id="configBtn">⚙ CONFIG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+    <div id="taskModal" class="modal-cyber hidden">
+        <div class="modal-content-cyber">
+            <div class="panel-title">◆ CREATE NEW TASK</div>
+            <input type="text" id="taskInput" placeholder="TASK DESCRIPTION..." class="terminal-input" style="width: 100%; margin: 15px 0;" />
+            <input type="datetime-local" id="taskDueDate" class="terminal-input" style="width: 100%; margin-bottom: 15px;" />
+            <div style="display: flex; gap: 10px;">
+                <button id="saveTaskBtn" class="ctrl-btn" style="flex: 1;">CREATE</button>
+                <button class="close-modal ctrl-btn" style="flex: 1;">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reminder Modal -->
+    <div id="reminderModal" class="modal-cyber hidden">
+        <div class="modal-content-cyber">
+            <div class="panel-title">◆ CREATE NEW REMINDER</div>
+            <input type="text" id="reminderInput" placeholder="REMINDER MESSAGE..." class="terminal-input" style="width: 100%; margin: 15px 0;" />
+            <input type="datetime-local" id="reminderTime" class="terminal-input" style="width: 100%; margin-bottom: 15px;" />
+            <div style="display: flex; gap: 10px;">
+                <button id="saveReminderBtn" class="ctrl-btn" style="flex: 1;">CREATE</button>
+                <button class="close-modal ctrl-btn" style="flex: 1;">CANCEL</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

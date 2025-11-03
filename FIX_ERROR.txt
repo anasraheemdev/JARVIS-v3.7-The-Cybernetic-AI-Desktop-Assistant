@@ -1,0 +1,38 @@
+=========================================
+  HOW TO FIX THE MODEL ERROR
+=========================================
+
+YOUR CODE IS ALREADY UPDATED!
+The problem is your Flask app is still running the OLD code.
+
+STEP BY STEP FIX:
+-----------------
+
+1. Find the terminal/PowerShell window where you see:
+   "* Running on http://127.0.0.1:5000"
+
+2. Click on that terminal window
+
+3. Press: CTRL+C
+   (This stops the old Flask server)
+
+4. You should see the cursor return (^C or similar)
+
+5. Now type this command and press Enter:
+   python app.py
+
+6. Wait for it to start (you'll see "INFO - All modules initialized")
+
+7. Go to your browser: http://localhost:5000
+
+8. Try sending a message again
+
+THAT'S IT! The error will be gone.
+
+=========================================
+
+WHY: Flask keeps code in memory. Restarting loads the new model.
+
+NEW MODEL: llama-3.3-70b-versatile (works!)
+OLD MODEL: llama-3.1-70b-versatile (deprecated - causes error)
+
